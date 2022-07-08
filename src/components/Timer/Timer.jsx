@@ -4,6 +4,7 @@ import "./styles.css";
 const Timer = () => {
   const [second, setSecond] = useState("00");
   const [minute, setMinute] = useState("00");
+  const [hour, setHour] = useState("00")
   const [isActive, setIsActive] = useState(false);
   const [counter, setCounter] = useState(0);
 
@@ -14,6 +15,7 @@ const Timer = () => {
       intervalId = setInterval(() => {
         const secondCounter = counter % 60;
         const minuteCounter = Math.floor(counter / 60);
+        const hourCounter = Math.floor(minuteCounter / 60);
 
         let computedSecond =
           String(secondCounter).length === 1
@@ -23,9 +25,14 @@ const Timer = () => {
           String(minuteCounter).length === 1
             ? `0${minuteCounter}`
             : minuteCounter;
-
+        let computedHour =
+          String(hourCounter).length === 1
+            ? `0${hourCounter}`
+            : hourCounter;
+        
         setSecond(computedSecond);
         setMinute(computedMinute);
+        setHour(computedHour);
 
         setCounter((counter) => counter + 1);
       }, 1000);
@@ -39,11 +46,14 @@ const Timer = () => {
     setCounter(0);
     setSecond("00");
     setMinute("00");
+    setHour("00");
   }
 
   return (
     <div class="container">
       <div class="time">
+        <span class="minute">{hour}</span>
+        <span>:</span>
         <span class="minute">{minute}</span>
         <span>:</span>
         <span class="second">{second}</span>
