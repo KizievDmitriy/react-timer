@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./styles.css";
+import styles from './Timer.module.css';
 
 const Timer = () => {
   const [second, setSecond] = useState("00");
@@ -50,19 +50,19 @@ const Timer = () => {
   }
 
   return (
-    <div class="container">
-      <div class="time">
-        <span class="minute">{hour}</span>
+    <div className={styles.container}>
+      <div className={styles.time}>
+        <span className={styles.minute}>{hour}</span>
         <span>:</span>
-        <span class="minute">{minute}</span>
+        <span className={styles.minute}>{minute}</span>
         <span>:</span>
-        <span class="second">{second}</span>
+        <span clasName={styles.second}>{second}</span>
       </div>
-      <div class="buttons">
-        <button onClick={() => setIsActive(!isActive)} class="start">
+      <div class={styles.buttons}>
+        <button onClick={() => setIsActive(!isActive)} className={styles.start}>
           {isActive ? "Pause" : "Start"}
         </button>
-        <button onClick={stopTimer} class="reset">
+        <button onClick={stopTimer} className={styles.reset}>
           Reset
         </button>
       </div>

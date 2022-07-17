@@ -1,7 +1,12 @@
+import Clock from "./Clock/Clock";
 import Timer from "./Timer/Timer";
+
 
 export const App = () => {
   return (
-      <Timer/>
+    <div>
+      <Timer />
+      <Clock />
+    </div>
   );
 };
